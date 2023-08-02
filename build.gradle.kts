@@ -28,13 +28,19 @@ group = "com.example"
 version = "0.0.1-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_11
 }
 
 repositories {
     mavenCentral()
     maven {
         url = uri("https://plugins.gradle.org/m2/")
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("io.awspring.cloud:spring-cloud-aws-dependencies:2.3.3")
     }
 }
 
@@ -52,13 +58,13 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-//  implementation("io.springfox:springfox-swagger2:3.0.0")
-//  implementation("io.springfox:springfox-swagger-ui:3.0.0")
     implementation("io.springfox:springfox-boot-starter:3.0.0")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     kapt("org.springframework.boot:spring-boot-configuration-processor")
     implementation("com.google.code.gson:gson:2.10.1")
+
+    implementation("io.awspring.cloud:spring-cloud-starter-aws-parameter-store-config")
 }
 
 tasks.withType<KotlinCompile> {

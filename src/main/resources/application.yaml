@@ -1,14 +1,17 @@
 spring:
+    config:
+        import: 'aws-parameterstore:'
     profiles:
         active: prod
+    application:
+        name: release-me
 
 ---
 
 spring:
-    profiles:
-        active: dev
----
-
-spring:
+    config:
+        import: 'aws-parameterstore:'
     profiles:
         active: local
+    application:
+        name: release-me

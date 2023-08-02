@@ -12,7 +12,7 @@ import java.time.LocalDateTime
 
 @RestController
 @RequestMapping("/api/v1")
-class HelloController(
+class ReleaseMeController(
     @Value("\${word}") private val word: String,
 ) {
     @ApiResponse(responseCode = "200")
