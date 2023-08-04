@@ -3,7 +3,7 @@ version: 0.2
 phases:
     pre_build:
         commands:
-            - echo Logging in to Amazon ECR..
+            - echo Logging in to Amazon ECR...
             - aws --version
             - echo $(aws ecr get-login-password --region $AWS_DEFAULT_REGION) | docker login --username AWS --password-stdin 192219970851.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
             - REPOSITORY_URI=192219970851.dkr.ecr.ap-northeast-2.amazonaws.com/release-me-api
@@ -19,6 +19,6 @@ phases:
         commands:
             - echo Build completed on `date`
             - echo Pushing the Docker image...
-            - echo '[{"name":"<your-container-name>","imageUri":"'$REPOSITORY_URI:$IMAGE_TAG'"}]' > imagedefinitions.json
+            - echo '[{"name":"release-me-api","imageUri":"'$REPOSITORY_URI:$IMAGE_TAG'"}]' > imagedefinitions.json
             - docker push $REPOSITORY_URI:latest
             - docker push $REPOSITORY_URI:$IMAGE_TAG
