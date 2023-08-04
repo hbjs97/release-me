@@ -3,7 +3,7 @@ version: 0.2
 phases:
     pre_build:
         commands:
-            - echo Logging in to Amazon ECR...
+            - echo Logging in to Amazon ECR..
             - aws --version
             - echo $(aws ecr get-login-password --region $AWS_DEFAULT_REGION) | docker login --username AWS --password-stdin 192219970851.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
             - REPOSITORY_URI=192219970851.dkr.ecr.ap-northeast-2.amazonaws.com/release-me-api
