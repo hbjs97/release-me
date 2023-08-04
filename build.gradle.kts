@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
-    val kotlinVersion = "1.6.21"
+    val kotlinVersion = "1.9.0"
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.0")
         classpath("io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE")
@@ -10,12 +10,12 @@ buildscript {
 }
 
 plugins {
-    val kotlinVersion = "1.6.21"
+    val kotlinVersion = "1.9.0"
     val springBootVersion = "2.7.0"
 
     id("org.springframework.boot") version springBootVersion
     id("io.spring.dependency-management") version "1.0.15.RELEASE"
-    id("io.gitlab.arturbosch.detekt") version "1.22.0"
+    id("io.gitlab.arturbosch.detekt") version "1.23.1"
 
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.spring") version kotlinVersion
@@ -80,7 +80,7 @@ tasks.withType<Test> {
 }
 
 detekt {
-    toolVersion = "1.22.0"
+    toolVersion = "1.23.1"
     config = files("detekt-config.yaml")
     buildUponDefaultConfig = true
 }
