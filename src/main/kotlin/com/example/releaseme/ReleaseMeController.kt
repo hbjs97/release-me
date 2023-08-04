@@ -18,5 +18,5 @@ class ReleaseMeController(
     @ApiResponse(responseCode = "200")
     @ResponseStatus(value = HttpStatus.OK)
     @GetMapping("hello")
-    fun hello(): String = "[${LocalDateTime.now()}][${InetAddress.getLocalHost().hostAddress}] - $word"
+    fun hello(): String = "[${LocalDateTime.now()}][${InetAddress.getLocalHost().hostAddress}] - $word - v1"
 }
