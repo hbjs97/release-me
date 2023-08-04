@@ -25,3 +25,6 @@ phases:
             - echo '[{"name":"release-me-api","imageUri":"'$REPOSITORY_URI:$IMAGE_TAG'"}]' > imagedefinitions.json
             - docker push $REPOSITORY_URI:latest
             - docker push $REPOSITORY_URI:$IMAGE_TAG
+
+artifacts:
+    files: imagedefinitions.json
