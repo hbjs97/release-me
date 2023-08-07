@@ -44,12 +44,24 @@ dependencyManagement {
     }
 }
 
+apply {
+    plugin("io.spring.dependency-management")
+    plugin("org.springframework.boot")
+    plugin("org.jetbrains.kotlin.plugin.spring")
+
+    plugin("kotlin")
+    plugin("kotlin-spring")
+    plugin("kotlin-jpa")
+    plugin("kotlin-kapt")
+}
+
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.21")
     implementation("org.springframework.boot:spring-boot-starter-web")
 //  implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-aop")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
@@ -65,6 +77,8 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
 
     implementation("io.awspring.cloud:spring-cloud-starter-aws-parameter-store-config")
+
+    runtimeOnly("mysql:mysql-connector-java")
 }
 
 tasks.withType<KotlinCompile> {

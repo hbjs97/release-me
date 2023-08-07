@@ -1,4 +1,3 @@
-**/application-*.yaml
 docker/**/data/**
 docker/**/*.key
 **/resources/logs/**
